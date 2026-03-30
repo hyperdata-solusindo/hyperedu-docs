@@ -1,6 +1,6 @@
 ---
-title: "Generator: TanStack + Feature: Form Hook"
-sidebar_label: "Generator: TanStack + Feature: Form Hook"
+title: "TanStack + Feature: Form Hook"
+sidebar_label: "TanStack + Feature: Form Hook"
 ---
 
 # Generator: TanStack + Feature: Form Hook

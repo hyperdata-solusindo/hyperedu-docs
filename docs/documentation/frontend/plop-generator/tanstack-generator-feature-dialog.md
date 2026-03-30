@@ -1,6 +1,6 @@
 ---
-title: "Generator: TanStack + Feature: Form Dialog"
-sidebar_label: "Generator: TanStack + Feature: Form Dialog"
+title: "Feature: Form Dialog"
+sidebar_label: "TanStack + Feature: Form Dialog"
 ---
 
 # Generator: TanStack + Feature: Form Dialog

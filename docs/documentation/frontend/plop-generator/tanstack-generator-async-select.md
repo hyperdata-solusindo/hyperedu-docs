@@ -1,6 +1,6 @@
 ---
-title: "Generator: TanStack + Feature: Async Select"
-sidebar_label: "Generator: TanStack + Feature: Async Select"
+title: "Feature: Async Select"
+sidebar_label: "TanStack + Feature: Async Select"
 ---
 
 # Generator: TanStack + Feature: Async Select

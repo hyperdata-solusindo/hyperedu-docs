@@ -1,6 +1,6 @@
 ---
-title: "Generator: TanStack + Feature: Datatable"
-sidebar_label: "Generator: TanStack + Feature: Datatable"
+title: "Feature: Datatable"
+sidebar_label: "TanStack + Feature: Datatable"
 ---
 
 # Generator: TanStack + Feature: Datatable

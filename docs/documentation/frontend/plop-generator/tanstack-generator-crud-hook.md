@@ -1,6 +1,6 @@
 ---
-title: "Generator: TanStack + Feature: CRUD Hook"
-sidebar_label: "Generator: TanStack + Feature: CRUD Hook"
+title: "Feature: CRUD Hook"
+sidebar_label: "TanStack + Feature: CRUD Hook"
 ---
 
 # Generator: TanStack + Feature: CRUD Hook
