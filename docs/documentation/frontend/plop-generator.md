@@ -8,7 +8,7 @@ sidebar_position: 4
 
 HyperEdu menggunakan **Plop.js** untuk scaffolding kode yang konsisten dan efisien. Plop memungkinkan pengembang untuk menghasilkan struktur folder, komponen, hooks, dan file-file lainnya secara otomatis dengan template yang sudah ditentukan.
 
-Generator ini dirancang untuk mempercepat pengembangan fitur baru dengan memastikan konsistensi struktur kode dan mengurangi boilerplate yang harus ditulis manual.
+Generator ini dirancang untuk mempercepat pengembangan fitur baru dengan memastikan konsistensi struktur kode dan mengurangi boilerplate yang harus ditulis manual
 
 ---
 
