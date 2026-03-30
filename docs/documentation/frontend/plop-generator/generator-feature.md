@@ -1,13 +1,15 @@
 ---
-title: "Generator: TanStack + Feature"
-sidebar_label: "Generator: TanStack + Feature"
+title: "Generator: Feature"
+sidebar_label: "Generator: Feature"
 ---
 
-# Generator: TanStack + Feature
+# Generator: Feature
 
 ## Gambaran Umum
 
-**TanStack + Feature** adalah tools otomatis untuk membuat struktur fitur lengkap yang mengintegrasikan TanStack React Query, Redux, dan berbagai komponen UI yang kompleks. Generator ini menghasilkan arsitektur modular yang siap pakai dengan routing, API layer, state management, dan form handling.
+**Feature** adalah generator yang digunakan untuk membuat struktur fitur baru dengan arsitektur berbasis fitur (feature-based architecture). Generator ini menghasilkan struktur folder lengkap untuk sebuah fitur, termasuk API layer, components, hooks, layouts, pages, slices, stores, types, dan routing.
+
+Generator ini cocok digunakan ketika Anda ingin memulai fitur baru dari awal tanpa integrasi TanStack Query. Fitur yang dihasilkan menggunakan Redux untuk state management.
 
 ## Cara Menggunakan
 
@@ -17,7 +19,7 @@ sidebar_label: "Generator: TanStack + Feature"
 npm run generate
 ```
 
-Kemudian pilih opsi **"TanStack + feature"** dari menu.
+Kemudian pilih opsi **"feature"** dari menu.
 
 ### 2. Ikuti Proses Interaktif
 
@@ -38,7 +40,6 @@ Masukkan nama fitur dalam format:
 - **format subfolder**: `masters/student`, `admin/user-management`
 
 **Contoh:**
-
 ```
 products
 ```
@@ -68,134 +69,11 @@ Nama fitur akan dikonversi ke berbagai format:
 Daftar atribut/field yang akan digunakan dalam fitur. Pisahkan dengan koma tanpa spasi tambahan.
 
 **Contoh:**
-
 ```
 id, name, email, role, status, createdAt
 ```
 
-### Tahap 2: Konfigurasi Datatable (Opsional)
-
-```
-? Include Datatable? (Y/n)
-```
-
-Tentukan apakah fitur memerlukan komponen tabel untuk menampilkan data.
-
-- **Yes** → Lanjut ke pemilihan kolom
-- **No** → Lewati ke tahap berikutnya
-
-Jika memilih **Yes**, akan diminta memilih kolom mana saja yang ditampilkan di tabel:
-
-```
-? Pilih data untuk kolom tabel:
-❯ ◯ id
-  ◯ name
-  ◯ email
-  ◯ role
-  ◯ status
-  ◯ createdAt
-```
-
-**Tips:**
-
-- Gunakan `Space` untuk memilih/membatalkan
-- Gunakan `Arrow Keys` untuk navigasi
-- Gunakan `Enter` untuk konfirmasi
-
-### Tahap 3: Konfigurasi Form Hook (Inti)
-
-```
-? Include Custom Form Hook? (Y/n)
-```
-
-Pilih apakah fitur memerlukan form untuk create/edit data.
-
-Jika **Yes**, akan diminta:
-
-1. **Pilih field untuk form:**
-
-```
-? Pilih data untuk input form:
-❯ ◯ id
-  ◯ name
-  ◯ email
-  ◯ role
-  ◯ status
-  ◯ createdAt
-```
-
-2. **Tentukan tipe input untuk setiap field:**
-
-Untuk setiap field yang dipilih, akan ditanyakan tipe inputnya:
-
-```
-? Tipe input untuk field 'name'?
-❯ Input Text
-  Textarea
-  Select Dropdown
-  Checkbox/Switch
-```
-
-**Jenis-jenis Input:**
-
-| Tipe                | Deskripsi                    | Kasus Penggunaan        |
-| ------------------- | ---------------------------- | ----------------------- |
-| **Input Text**      | Input field untuk teks biasa | nama, email, nomor      |
-| **Textarea**        | Area teks multiline          | deskripsi, bio, catatan |
-| **Select Dropdown** | Dropdown untuk memilih opsi  | role, status, kategori  |
-| **Checkbox/Switch** | Toggle boolean               | aktif/nonaktif, setujui |
-
-**Contoh Flow:**
-
-```
-? Pilih data untuk input form:
-  ◉ name
-  ◉ email
-  ◉ role
-  ○ createdAt
-  (3 dipilih)
-
---- Konfigurasi Tipe Field ---
-
-? Tipe input untuk field 'name'?
-❯ Input Text
-
-? Tipe input untuk field 'email'?
-❯ Input Text
-
-? Tipe input untuk field 'role'?
-❯ Select Dropdown
-```
-
-### Tahap 4: Konfigurasi Fitur Tambahan
-
-```
-? Include Async Select Hook? (Y/n)
-```
-
-Untuk dropdown yang data-nya diambil dari API dengan pagination & search.
-
-**Kapan gunakan:**
-
-- Ada field dropdown yang data source-nya dari backend API
-- Memerlukan search/autocomplete functionality
-- Data terlalu banyak untuk di-hardcode
-
-```
-? Include Edit/Create Page? (Y/n)
-```
-
-Pilih apakah fitur memerlukan page terpisah untuk create dan edit data.
-
-Jika **Yes**, akan ditanyakan jenis halaman:
-
-```
-? Jenis Halaman?
-❯ ◉ Create
-  ◉ Edit
-```
-
-Pilih kedua-duanya untuk membuat page create dan edit, atau salah satu saja sesuai kebutuhan.
+Data ini akan digunakan untuk membuat schema di file `types/schema.ts`.
 
 ## Output File yang Dihasilkan
 
@@ -204,63 +82,63 @@ Pilih kedua-duanya untuk membuat page create dan edit, atau salah satu saja sesu
 ```
 src/features/[nama-fitur]/
 ├── api/
-│   └── get[NamaFitur].ts          # API calls dan data fetching
+│   └── get[NamaFitur].ts          # API calls
 ├── assets/
 │   └── .gitkeep                   # Folder untuk aset lokal fitur
 ├── components/
-│   ├── [nama-fitur]-list.tsx      # Component list data
-│   ├── [nama-fitur]-table.tsx     # Component datatable (optional)
-│   └── [nama-fitur]-form.tsx      # Component form (optional)
+│   └── [nama-fitur]-list.tsx      # Component list data
 ├── hooks/
-│   ├── use[NamaFitur].ts          # Hook untuk fetch data
-│   ├── use[NamaFitur]Select.ts    # Hook untuk async select (optional)
-│   └── use[NamaFitur]Form.ts      # Hook untuk form (optional)
+│   └── use[NamaFitur].ts          # Custom hook
 ├── layouts/
 │   └── [nama-fitur]-layout.tsx    # Layout fitur
 ├── pages/
-│   ├── [nama-fitur].tsx           # Main page
-│   ├── [nama-fitur]-create.tsx    # Create page (optional)
-│   └── [nama-fitur]-edit.tsx      # Edit page (optional)
+│   └── [nama-fitur].tsx           # Main page
 ├── slices/
-│   └── slice[NamaFitur].tsx       # Redux slice untuk state fitur
+│   └── slice[NamaFitur].tsx       # Redux slice
 ├── stores/
 │   └── store[NamaFitur].tsx       # Redux store config
 ├── types/
-│   ├── schema.ts                  # Zod schemas untuk validasi
-│   └── query-keys.ts              # TanStack Query keys
-├── index.ts                       # Barrel file (export semua)
-└── route.ts                       # Route definition fitur
+│   └── schema.ts                  # Zod schemas
+├── index.ts                       # Barrel file
+└── route.ts                       # Route definition
 ```
 
 ### Deskripsi File-File Utama
 
 #### 1. **api/get[NamaFitur].ts**
 
-Berisi semua fungsi API untuk fetch data dari backend.
+File API yang berisi fungsi untuk mengambil data dari backend.
 
 ```typescript
-// Contoh: products feature
+import { api } from "@/config/axios";
 
-export const getSelectData = async (pageNum, pageSize, searchTerm)
-// → Fetch data untuk async select dengan pagination & search
+export const get[NamaFitur]Data = async (): Promise<[nama]DataSchema[]> => {
+  const response = await api.get("/[nama]");
+  return response.data;
+};
 
-export const getData = async ()
-// → Fetch semua data produk
+export const get[NamaFitur]Detail = async (id: string): Promise<[nama]DataSchema> => {
+  const response = await api.get(`/[nama]/${id}`);
+  return response.data;
+};
 
-export const getPaginatedData = async (params)
-// → Fetch data dengan pagination
+export const create[NamaFitur] = async (payload: [nama]FormSchema): Promise<[nama]DataSchema> => {
+  const response = await api.post("/[nama]", payload);
+  return response.data;
+};
 
-export const getDetail = async (id)
-// → Fetch detail produk berdasarkan ID
+export const update[NamaFitur] = async (
+  id: string,
+  payload: [nama]FormSchema
+): Promise<[nama]DataSchema> => {
+  const response = await api.put(`/[nama]/${id}`, payload);
+  return response.data;
+};
 
-export const create = async (payload)
-// → Create produk baru
-
-export const update = async (id, payload)
-// → Update produk
-
-export const delete = async (id)
-// → Hapus produk
+export const delete[NamaFitur] = async (id: string): Promise<void> => {
+  const response = await api.delete(`/[nama]/${id}`);
+  return response.data;
+};
 ```
 
 #### 2. **types/schema.ts**
@@ -268,197 +146,462 @@ export const delete = async (id)
 Validasi data menggunakan Zod schema.
 
 ```typescript
+import { z } from "zod";
+
+// Schema untuk data dari API
 export const [nama]DataSchema = z.object({
-  // Field yang dipilih
   id: z.string(),
   name: z.string(),
   email: z.string().email(),
-  // ...
-})
+  role: z.string(),
+  status: z.string(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
 
-export type [nama]DataSchema = z.infer<typeof [nama]DataSchema>
+export type [nama]DataSchema = z.infer<typeof [nama]DataSchema>;
 
+// Schema untuk form (create/update)
 export const [nama]FormSchema = z.object({
-  // Field yang akan disubmit form
-})
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email format"),
+  role: z.string(),
+  status: z.string(),
+});
 
+export type [nama]FormSchema = z.infer<typeof [nama]FormSchema>;
+
+// Schema untuk select dropdown
 export const [nama]SelectSchema = z.object({
   id: z.string(),
   text: z.string(),
-})
+});
+
+export type [nama]SelectSchema = z.infer<typeof [nama]SelectSchema>;
 ```
 
-#### 3. **types/query-keys.ts**
+#### 3. **hooks/use[NamaFitur].ts**
 
-Konfigurasi query keys untuk TanStack Query (React Query).
-
-```typescript
-export const [nama]QueryKeys = {
-  all: ['[nama]'] as const,
-  lists: () => [...[nama]QueryKeys.all, 'list'] as const,
-  detail: (id: string) => [...[nama]QueryKeys.all, 'detail', id] as const,
-  // ... dll
-}
-```
-
-#### 4. **hooks/use[NamaFitur].ts**
-
-Hook utama untuk fetch data menggunakan TanStack Query.
+Custom hook untuk mengelola state dan API calls dengan Redux.
 
 ```typescript
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { useCallback } from "react";
+import {
+  fetch[NamaFitur]List,
+  fetch[NamaFitur]Detail,
+  create[NamaFitur],
+  update[NamaFitur],
+  delete[NamaFitur],
+  reset[NamaFitur]State,
+} from "../slices/slice[NamaFitur]";
+
 export const use[NamaFitur] = () => {
   const dispatch = useAppDispatch();
-
-  // Query untuk fetch semua data
-  const { data, isLoading, error } = useQuery({
-    queryKey: [...keys.lists()],
-    queryFn: getData,
-  });
-
-  // Mutation untuk create
-  const createMutation = useMutation({
-    mutationFn: create,
-    onSuccess: () => queryClient.invalidateQueries(...),
-  });
-
-  // Mutation untuk update
-  const updateMutation = useMutation({
-    mutationFn: (data) => update(data.id, data),
-  });
-
-  // Mutation untuk delete
-  const deleteMutation = useMutation({
-    mutationFn: delete,
-  });
-
-  return {
+  const {
     data,
+    detail,
     isLoading,
+    isSubmitting,
     error,
-    createMutation,
-    updateMutation,
-    deleteMutation,
-  }
-}
-```
+  } = useAppSelector((state) => state.[nama]);
 
-#### 5. **hooks/use[NamaFitur]Form.ts**
+  const getList = useCallback(() => {
+    dispatch(fetch[NamaFitur]List());
+  }, [dispatch]);
 
-Hook untuk mengelola form menggunakan React Hook Form.
+  const getDetail = useCallback((id: string) => {
+    dispatch(fetch[NamaFitur]Detail(id));
+  }, [dispatch]);
 
-```typescript
-export const use[NamaFitur]Form = (initialData?: FormSchema) => {
-  const form = useForm<FormSchema>({
-    resolver: zodResolver([nama]FormSchema),
-    defaultValues: initialData,
-    mode: 'onChange',
-  });
+  const create = useCallback((payload: [nama]FormSchema) => {
+    return dispatch(create[NamaFitur](payload)).unwrap();
+  }, [dispatch]);
 
-  const { handleSubmit, watch, formState: { errors } } = form;
+  const update = useCallback((id: string, payload: [nama]FormSchema) => {
+    return dispatch(update[NamaFitur]({ id, data: payload })).unwrap();
+  }, [dispatch]);
 
-  const onSubmit = async (data: FormSchema) => {
-    // Handle submit
-  };
+  const remove = useCallback((id: string) => {
+    return dispatch(delete[NamaFitur](id)).unwrap();
+  }, [dispatch]);
+
+  const reset = useCallback(() => {
+    dispatch(reset[NamaFitur]State());
+  }, [dispatch]);
 
   return {
-    form,
-    onSubmit: handleSubmit(onSubmit),
-    errors,
-    // ...
-  }
-}
-```
-
-#### 6. **components/[nama-fitur]-form.tsx**
-
-Komponen form yang sudah terintegrasi dengan React Hook Form.
-
-```typescript
-export const [NamaFitur]Form = ({ initialData }: Props) => {
-  const { form, onSubmit, errors } = use[NamaFitur]Form(initialData);
-
-  return (
-    <form onSubmit={onSubmit} className="space-y-4">
-      {/* Field-field sesuai konfigurasi */}
-      {/* Input text, textarea, select, checkbox */}
-      <button type="submit">Simpan</button>
-    </form>
-  );
-}
-```
-
-#### 7. **components/[nama-fitur]-table.tsx**
-
-Komponen tabel dengan TanStack Table untuk menampilkan data list.
-
-```typescript
-export const [NamaFitur]Table = ({ data }: Props) => {
-  const table = useReactTable({
     data,
-    columns: [
-      // Kolom sesuai pilihan di tahap 2
-    ],
-  });
-
-  return (
-    <DataTable table={table} />
-  );
-}
+    detail,
+    isLoading,
+    isSubmitting,
+    error,
+    getList,
+    getDetail,
+    create,
+    update,
+    remove,
+    reset,
+  };
+};
 ```
 
-#### 8. **slices/slice[NamaFitur].tsx**
+#### 4. **slices/slice[NamaFitur].tsx**
 
-Redux slice untuk state lokal fitur.
+Redux slice untuk mengelola state fitur.
 
 ```typescript
-const slice = createSlice({
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import {
+  get[NamaFitur]Data,
+  get[NamaFitur]Detail,
+  create[NamaFitur],
+  update[NamaFitur],
+  delete[NamaFitur],
+} from "../api/get[NamaFitur]";
+import { [nama]DataSchema, [nama]FormSchema } from "../types/schema";
+
+interface [NamaFitur]State {
+  data: [nama]DataSchema[];
+  detail: [nama]DataSchema | null;
+  isLoading: boolean;
+  isSubmitting: boolean;
+  error: string | null;
+}
+
+const initialState: [NamaFitur]State = {
+  data: [],
+  detail: null,
+  isLoading: false,
+  isSubmitting: false,
+  error: null,
+};
+
+// Async thunks
+export const fetch[NamaFitur]List = createAsyncThunk(
+  "[nama]/fetchList",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await get[NamaFitur]Data();
+      return response;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data?.message || "Failed to fetch data");
+    }
+  }
+);
+
+export const fetch[NamaFitur]Detail = createAsyncThunk(
+  "[nama]/fetchDetail",
+  async (id: string, { rejectWithValue }) => {
+    try {
+      const response = await get[NamaFitur]Detail(id);
+      return response;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data?.message || "Failed to fetch detail");
+    }
+  }
+);
+
+export const create[NamaFitur] = createAsyncThunk(
+  "[nama]/create",
+  async (payload: [nama]FormSchema, { rejectWithValue }) => {
+    try {
+      const response = await create[NamaFitur](payload);
+      return response;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data?.message || "Failed to create data");
+    }
+  }
+);
+
+export const update[NamaFitur] = createAsyncThunk(
+  "[nama]/update",
+  async ({ id, data }: { id: string; data: [nama]FormSchema }, { rejectWithValue }) => {
+    try {
+      const response = await update[NamaFitur](id, data);
+      return response;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data?.message || "Failed to update data");
+    }
+  }
+);
+
+export const delete[NamaFitur] = createAsyncThunk(
+  "[nama]/delete",
+  async (id: string, { rejectWithValue }) => {
+    try {
+      await delete[NamaFitur](id);
+      return id;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data?.message || "Failed to delete data");
+    }
+  }
+);
+
+const [nama]Slice = createSlice({
   name: "[nama]",
   initialState,
   reducers: {
-    setFilter(state, action) {
-      /* ... */
-    },
-    setSort(state, action) {
-      /* ... */
-    },
-    // ... action lainnya
+    reset[NamaFitur]State: () => initialState,
+  },
+  extraReducers: (builder) => {
+    builder
+      // Fetch list
+      .addCase(fetch[NamaFitur]List.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetch[NamaFitur]List.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetch[NamaFitur]List.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+      // Fetch detail
+      .addCase(fetch[NamaFitur]Detail.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetch[NamaFitur]Detail.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.detail = action.payload;
+      })
+      .addCase(fetch[NamaFitur]Detail.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+      // Create
+      .addCase(create[NamaFitur].pending, (state) => {
+        state.isSubmitting = true;
+        state.error = null;
+      })
+      .addCase(create[NamaFitur].fulfilled, (state, action) => {
+        state.isSubmitting = false;
+        state.data.unshift(action.payload);
+      })
+      .addCase(create[NamaFitur].rejected, (state, action) => {
+        state.isSubmitting = false;
+        state.error = action.payload as string;
+      })
+      // Update
+      .addCase(update[NamaFitur].pending, (state) => {
+        state.isSubmitting = true;
+        state.error = null;
+      })
+      .addCase(update[NamaFitur].fulfilled, (state, action) => {
+        state.isSubmitting = false;
+        const index = state.data.findIndex((item) => item.id === action.payload.id);
+        if (index !== -1) {
+          state.data[index] = action.payload;
+        }
+        state.detail = action.payload;
+      })
+      .addCase(update[NamaFitur].rejected, (state, action) => {
+        state.isSubmitting = false;
+        state.error = action.payload as string;
+      })
+      // Delete
+      .addCase(delete[NamaFitur].pending, (state) => {
+        state.isSubmitting = true;
+        state.error = null;
+      })
+      .addCase(delete[NamaFitur].fulfilled, (state, action) => {
+        state.isSubmitting = false;
+        state.data = state.data.filter((item) => item.id !== action.payload);
+        if (state.detail?.id === action.payload) {
+          state.detail = null;
+        }
+      })
+      .addCase(delete[NamaFitur].rejected, (state, action) => {
+        state.isSubmitting = false;
+        state.error = action.payload as string;
+      });
   },
 });
+
+export const { reset[NamaFitur]State } = [nama]Slice.actions;
+export default [nama]Slice.reducer;
 ```
 
-#### 9. **route.ts**
+#### 5. **components/[nama-fitur]-list.tsx**
+
+Komponen untuk menampilkan daftar data.
+
+```typescript
+import { use[NamaFitur] } from "../hooks/use[NamaFitur]";
+import { [nama]DataSchema } from "../types/schema";
+
+interface [NamaFitur]ListProps {
+  onEdit?: (item: [nama]DataSchema) => void;
+  onDelete?: (id: string) => void;
+}
+
+export const [NamaFitur]List = ({ onEdit, onDelete }: [NamaFitur]ListProps) => {
+  const { data, isLoading, error, getList } = use[NamaFitur]();
+
+  if (isLoading) {
+    return <div className="flex items-center justify-center h-64">Loading...</div>;
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <p className="text-destructive">Error: {error}</p>
+      </div>
+    );
+  }
+
+  if (!data || data.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <p className="text-muted-foreground">No data available</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      {data.map((item) => (
+        <div
+          key={item.id}
+          className="bg-white rounded-lg border p-4 flex justify-between items-center"
+        >
+          <div>
+            <h3 className="font-medium">{item.name}</h3>
+            <p className="text-sm text-muted-foreground">{item.email}</p>
+          </div>
+          <div className="flex gap-2">
+            <button
+              onClick={() => onEdit?.(item)}
+              className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+            >
+              Edit
+            </button>
+            <button
+              onClick={() => onDelete?.(item.id)}
+              className="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+```
+
+#### 6. **pages/[nama-fitur].tsx**
+
+Halaman utama fitur.
+
+```typescript
+import { useState } from "react";
+import { use[NamaFitur] } from "../hooks/use[NamaFitur]";
+import { [NamaFitur]List } from "../components/[nama-fitur]-list";
+import { [nama]DataSchema } from "../types/schema";
+
+export const [NamaFitur]Page = () => {
+  const [showForm, setShowForm] = useState(false);
+  const [editingItem, setEditingItem] = useState<[nama]DataSchema | null>(null);
+  const { remove } = use[NamaFitur]();
+
+  const handleEdit = (item: [nama]DataSchema) => {
+    setEditingItem(item);
+    setShowForm(true);
+  };
+
+  const handleDelete = async (id: string) => {
+    if (confirm("Are you sure you want to delete this item?")) {
+      await remove(id);
+    }
+  };
+
+  const handleSuccess = () => {
+    setShowForm(false);
+    setEditingItem(null);
+  };
+
+  return (
+    <div className="p-6">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold">{capitalizedNama}</h1>
+        <button
+          onClick={() => setShowForm(true)}
+          className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90"
+        >
+          Add New
+        </button>
+      </div>
+
+      <[NamaFitur]List onEdit={handleEdit} onDelete={handleDelete} />
+
+      {/* Form modal would go here */}
+      {showForm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md">
+            <h2 className="text-xl font-bold mb-4">
+              {editingItem ? "Edit" : "Create"} {capitalizedNama}
+            </h2>
+            {/* Form content */}
+            <div className="flex justify-end gap-2 mt-4">
+              <button
+                onClick={() => setShowForm(false)}
+                className="px-4 py-2 border rounded hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90">
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+```
+
+#### 7. **route.ts**
 
 Definisi routing untuk fitur.
 
 ```typescript
-export const [nama]Base = "/[nama]"
+import { lazy } from "react";
+import { [NamaFitur]Layout } from "./layouts/[nama-fitur]-layout";
+
+const [NamaFitur]Page = lazy(() => import("./pages/[nama-fitur]"));
+
+export const [nama]Base = "/[nama]";
 
 export const [nama]Route = [
   {
+    path: [nama]Base,
     Component: [NamaFitur]Layout,
     children: [
       {
-        path: [nama]Base,
-        Component: [NamaFitur],
+        index: true,
+        Component: [NamaFitur]Page,
       },
-      // Create & Edit pages (jika dipilih)
-    ]
-  }
-]
+    ],
+  },
+];
 ```
 
-#### 10. **index.ts (Barrel File)**
+#### 8. **index.ts (Barrel File)**
 
 Mengekspor semua exports dari fitur untuk kemudahan import.
 
 ```typescript
 export * from "./types/schema";
-export * from "./types/query-keys";
 export * from "./hooks/use[NamaFitur]";
-export * from "./hooks/use[NamaFitur]Form"; // (jika ada)
-export * from "./hooks/use[NamaFitur]Select"; // (jika ada)
 export * from "./slices/slice[NamaFitur]";
-export * from "./stores/store[NamaFitur]";
+export * from "./api/get[NamaFitur]";
+export * from "./components/[nama-fitur]-list";
+export * from "./layouts/[nama-fitur]-layout";
 export * from "./route";
 ```
 
@@ -470,55 +613,16 @@ export * from "./route";
 npm run generate
 ```
 
-Pilih: `TanStack + feature`
+Pilih: `feature`
 
 ### Step 2: Jawab Pertanyaan
 
 ```
-? Apa nama fitur baru ini?
+? Apa nama fitur baru ini? (misal: products, auth, user-profile)
 → products
 
-? Sebutkan data (pisahkan dengan koma)?
-→ id, name, price, description, category, stock, status
-
-? Include Datatable?
-→ Yes
-
-? Pilih data untuk kolom tabel:
-→ name, price, category, stock, status
-
-? Include Custom Form Hook?
-→ Yes
-
-? Pilih data untuk input form:
-→ name, price, description, category, stock, status
-
-? Tipe input untuk field 'name'?
-→ Input Text
-
-? Tipe input untuk field 'price'?
-→ Input Text
-
-? Tipe input untuk field 'description'?
-→ Textarea
-
-? Tipe input untuk field 'category'?
-→ Select Dropdown
-
-? Tipe input untuk field 'stock'?
-→ Input Text
-
-? Tipe input untuk field 'status'?
-→ Checkbox/Switch
-
-? Include Async Select Hook?
-→ Yes (untuk fetch category)
-
-? Include Edit/Create Page?
-→ Yes
-
-? Jenis Halaman?
-→ Create, Edit
+? Sebutkan data (pisahkan dengan koma)? (cth: id, name, email, role)
+→ id, name, price, description, category, stock, status, createdAt
 ```
 
 ### Step 3: File yang Dihasilkan
@@ -527,34 +631,44 @@ Pilih: `TanStack + feature`
 src/features/products/
 ├── api/
 │   └── getProducts.ts
+├── assets/
+│   └── .gitkeep
 ├── components/
-│   ├── products-list.tsx
-│   ├── products-table.tsx
-│   └── products-form.tsx
+│   └── products-list.tsx
 ├── hooks/
-│   ├── useProducts.ts
-│   ├── useProductsSelect.ts (untuk category)
-│   └── useProductsForm.ts
+│   └── useProducts.ts
 ├── layouts/
 │   └── products-layout.tsx
 ├── pages/
-│   ├── products.tsx
-│   ├── products-create.tsx
-│   └── products-edit.tsx
+│   └── products.tsx
 ├── slices/
 │   └── sliceProducts.tsx
 ├── stores/
 │   └── storeProducts.tsx
 ├── types/
-│   ├── schema.ts
-│   └── query-keys.ts
+│   └── schema.ts
 ├── index.ts
 └── route.ts
 ```
 
-### Step 4: Integrasi ke Main Routes
+### Step 4: Integrasi ke Redux Store
 
-Tambahkan ke `src/route.ts`:
+Tambahkan reducer ke root store:
+
+```typescript
+// src/stores/index.ts
+import { combineReducers } from "@reduxjs/toolkit";
+import productsReducer from "../features/products/slices/sliceProducts";
+
+export const rootReducer = combineReducers({
+  products: productsReducer,
+  // ... other reducers
+});
+```
+
+### Step 5: Integrasi ke Main Routes
+
+Tambahkan route ke `src/route.ts`:
 
 ```typescript
 import { productsRoute } from "./features/products";
@@ -574,6 +688,40 @@ const router = createBrowserRouter([
 ]);
 ```
 
+## Kustomisasi
+
+### 1. Menambahkan Form Component
+
+Setelah generate, Anda dapat menambahkan komponen form dengan generator `feature:form-hook`:
+
+```bash
+npm run generate
+→ Pilih: feature:form-hook
+→ Nama Form: product
+→ Fields: name, price, description, category, stock, status
+```
+
+### 2. Menambahkan Datatable
+
+Setelah generate, Anda dapat menambahkan datatable dengan generator `feature:datatable`:
+
+```bash
+npm run generate
+→ Pilih: feature:datatable
+→ Nama: product
+→ Columns: name, price, category, stock, status
+```
+
+### 3. Menambahkan Async Select
+
+Setelah generate, Anda dapat menambahkan async select dengan generator `feature:async-combobox`:
+
+```bash
+npm run generate
+→ Pilih: feature:async-combobox
+→ Nama Entity: Category
+```
+
 ## Best Practices
 
 ### 1. Naming Convention
@@ -583,106 +731,115 @@ const router = createBrowserRouter([
 - **Function**: camelCase (`getUsers`, `fetchStudents`)
 - **Type/Schema**: PascalCase (`UserSchema`, `StudentFormSchema`)
 
-### 2. Field Configuration
+### 2. Redux State Management
 
 ```typescript
-// ✅ Baik: Explicit field configuration
-{
-  type: 'input',
-  name: 'email',
-  validation: z.string().email()
-}
-
-// ❌ Hindari: Mengubah tipe field setelah generate
-// Lebih baik re-generate
-```
-
-### 3. Form Submission
-
-```typescript
-// ✅ Baik: Handle success dan error
-const mutation = useMutation({
-  mutationFn: createProduct,
-  onSuccess: () => {
-    queryClient.invalidateQueries(queryKeys);
-    toast.success("Berhasil disimpan");
-    navigate("/products");
-  },
-  onError: (error) => {
-    toast.error(error.message);
-  },
+// ✅ Baik: Pisahkan state berdasarkan fitur
+const productsSlice = createSlice({
+  name: 'products',
+  initialState,
+  reducers: {},
 });
 
-// ❌ Hindari: Tidak ada feedback ke user
+// ❌ Hindari: State global yang terlalu besar
 ```
 
-### 4. Query Optimization
+### 3. API Calls
 
 ```typescript
-// ✅ Baik: Gunakan query keys yang proper
-const queryKeys = {
-  all: ['products'],
-  lists: () => [...queryKeys.all, 'list'],
-  detail: (id) => [...queryKeys.all, 'detail', id]
-}
+// ✅ Baik: Gunakan async/await dengan error handling
+export const getProducts = async () => {
+  try {
+    const response = await api.get('/products');
+    return response.data;
+  } catch (error) {
+    console.error('Failed to fetch products:', error);
+    throw error;
+  }
+};
 
-// ❌ Hindari: Query keys yang tidak konsisten
-['products'], ['productList'], ['prod']
+// ❌ Hindari: Tanpa error handling
+```
+
+### 4. Component Structure
+
+```typescript
+// ✅ Baik: Pisahkan container dan presentational components
+export const ProductList = ({ data, onEdit, onDelete }) => {
+  // Presentational component
+};
+
+export const ProductContainer = () => {
+  const { data, remove } = useProducts();
+  // Container component with logic
+};
 ```
 
 ## Troubleshooting
 
-### File sudah ada, tidak di-generate ulang
+### Redux Store Tidak Terdaftar
 
-Generator menggunakan `skipIfExists: true`, jadi jika file sudah ada tidak akan di-override. Solusi:
+Pastikan reducer sudah ditambahkan ke root store:
 
-```bash
-# Hapus folder feature lama
-rm -rf src/features/[nama-fitur]
+```typescript
+// src/stores/index.ts
+import productsReducer from "../features/products/slices/sliceProducts";
 
-# Jalankan generator lagi
-npm run generate
+export const rootReducer = combineReducers({
+  products: productsReducer,
+});
 ```
 
-### Field tidak sesuai yang diinginkan
+### Route Tidak Terdaftar
 
-Jika field configuration tidak sesuai, bisa manual edit file setelah di-generate di:
+Pastikan route sudah ditambahkan ke router utama:
 
-- `types/schema.ts` - ubah Zod schema
-- `hooks/use[NamaFitur]Form.ts` - ubah React Hook Form config
+```typescript
+// src/route.ts
+import { productsRoute } from "./features/products";
 
-### Template error
+const router = createBrowserRouter([
+  {
+    Component: MainLayout,
+    children: [
+      ...productsRoute,
+    ],
+  },
+]);
+```
 
-Pastikan:
+### API Endpoint Salah
 
-- Tidak ada spasi lebih di nama field
-- Nama fitur tidak menggunakan spasi
-- Format nama konsisten (lowercase)
+Pastikan endpoint API sesuai dengan backend:
+
+```typescript
+// api/getProducts.ts
+export const getProducts = async () => {
+  // Sesuaikan dengan endpoint yang benar
+  const response = await api.get('/products');
+  return response.data;
+};
+```
 
 ## Command Reference
 
-### Generate dengan Berbagai Options
-
 ```bash
-# Generate feature lengkap dengan datatable & form
+# Generate basic feature
 npm run generate
-→ Pilih: TanStack + feature
+→ Pilih: feature
 
-# Generate hanya form-hook ke existing feature
-npm run generate
-→ Pilih: TanStack + feature:form-hook
+# Generate dengan subfolder
+→ Nama fitur: masters/products
 
-# Generate hanya datatable
-npm run generate
-→ Pilih: TanStack + feature:datatable
-
-# Generate hanya CRUD hooks (mutations)
-npm run generate
-→ Pilih: TanStack + feature:crud-hook
+# Generate dengan data fields
+→ Data fields: id, name, email, role, status
 ```
 
 ## Lihat Juga
 
-- [Arsitektur Keseluruhan](./architecture.md)
-- [TanStack React Query Documentation](https://tanstack.com/query/latest)
-- [React Hook Form Documentation](https://react-hook-form.com/)
+- [Generator: Feature Datatable](./generator-datatable.md)
+- [Generator: Feature Form Hook](./generator-form-hook.md)
+- [Generator: Feature Page](./generator-page.md)
+- [Generator: Feature Async Combobox](./generator-async-combobox.md)
+- [Redux Toolkit Documentation](https://redux-toolkit.js.org/)
+```
