@@ -1,32 +1,39 @@
 ---
 sidebar_position: 3
 ---
-# Others
+
+# Custom Components (Others)
 
 ## Overview
 
 Dokumentasi ini menyediakan panduan lengkap untuk komponen kustom yang digunakan dalam aplikasi frontend HyperEdu. Komponen-komponen ini dirancang untuk dapat digunakan kembali (reusable), mudah dipelihara (maintainable), dan mengikuti sistem desain serta praktik terbaik proyek.
 
+Komponen-komponen ini merupakan pengembangan dari komponen UI dasar (Shadcn) yang telah dikustomisasi untuk kebutuhan spesifik aplikasi HyperEdu.
+
+---
+
 ## Daftar Komponen
 
-1. [AppSidebar](#appsidebar)
-2. [AsyncCombobox](#asynccombobox)
-3. [AsyncSelect](#asyncselect)
-4. [ConfirmPopover](#confirmpopover)
-5. [DataTable](#datatable)
-6. [DataTable Components](#datatable-components)
-7. [DatePicker Components](#datepicker-components)
-8. [DeletePopover](#deletepopover)
-9. [Form Components](#form-components)
-10. [FormHeaderCard](#formheadercard)
-11. [FormModal](#formmodal)
-12. [FormNavTab](#formnavtab)
-13. [IconCombobox](#iconcombobox)
-14. [LazyIcon](#lazyicon)
-15. [LoadingScreen](#loadingscreen)
-16. [ProtectedAccess](#protectedaccess)
-17. [Section Components](#section-components)
-18. [Sortable](#sortable)
+| No | Komponen | Lokasi | Deskripsi |
+|----|----------|--------|-----------|
+| 1 | [AppSidebar](#appsidebar) | `components/custom/app-sidebar.tsx` | Sidebar navigasi utama |
+| 2 | [AsyncCombobox](#asynccombobox) | `components/custom/async-combobox.tsx` | Combobox asinkron dengan search & infinite scroll |
+| 3 | [AsyncSelect](#asyncselect) | `components/custom/async-select.tsx` | Select asinkron dengan search & pagination |
+| 4 | [ConfirmPopover](#confirmpopover) | `components/custom/confirm-popover.tsx` | Popover konfirmasi aksi |
+| 5 | [DataTable](#datatable) | `components/custom/datatable.tsx` | Tabel data dengan sorting, filter, pagination |
+| 6 | [DataTable Components](#datatable-components) | `components/custom/` | Komponen pendukung DataTable |
+| 7 | [DatePicker Components](#datepicker-components) | `components/custom/` | Komponen pemilih tanggal |
+| 8 | [DeletePopover](#deletepopover) | `components/custom/delete-popover.tsx` | Popover konfirmasi hapus |
+| 9 | [Form Components](#form-components) | `components/custom/form-card.tsx` | Komponen form dengan styling konsisten |
+| 10 | [FormHeaderCard](#formheadercard) | `components/custom/form-header-card.tsx` | Header untuk halaman form |
+| 11 | [FormModal](#formmodal) | `components/custom/form-modal.tsx` | Modal dialog untuk form |
+| 12 | [FormNavTab](#formnavtab) | `components/custom/form-navtab.tsx` | Tab navigasi untuk form multi-bagian |
+| 13 | [IconCombobox](#iconcombobox) | `components/custom/icon-combobox.tsx` | Combobox pemilih ikon Lucide |
+| 14 | [LazyIcon](#lazyicon) | `components/custom/lazy-icon.tsx` | Ikon dengan lazy loading |
+| 15 | [LoadingScreen](#loadingscreen) | `components/custom/loading-screen.tsx` | Fullscreen loading overlay |
+| 16 | [ProtectedAccess](#protectedaccess) | `components/custom/protected-access.tsx` | Kontrol akses berbasis fitur |
+| 17 | [Section Components](#section-components) | `components/custom/section.tsx` | Komponen layout halaman |
+| 18 | [Sortable](#sortable) | `components/custom/sortable.tsx` | Drag-and-drop sorting |
 
 ---
 
@@ -62,7 +69,7 @@ Komponen navigasi sidebar utama yang menampilkan struktur menu aplikasi dengan b
   items={menuItems}
   activeMenus={['/dashboard', '/courses']}
   isLoading={false}
-  onNavigateHandler={() => {}} 
+  onNavigateHandler={(link, level) => console.log(link, level)}
 />
 ```
 
@@ -199,7 +206,7 @@ Komponen popover konfirmasi yang membutuhkan konfirmasi pengguna sebelum melakuk
 **Lokasi:** `components/custom/datatable.tsx`
 
 ### Deskripsi
-Komponen tabel data yang powerful dengan fitur sorting, filtering, pagination, dan column visibility.
+Komponen tabel data yang powerful dengan fitur sorting, filtering, pagination, dan column visibility, menggunakan TanStack Table.
 
 ### Props
 
@@ -588,9 +595,17 @@ Kumpulan komponen untuk layout halaman dengan struktur konsisten.
 
 ### Komponen yang Tersedia
 
-#### SectionPage
-Container utama untuk halaman.
+| Komponen | Deskripsi |
+|----------|-----------|
+| `SectionPage` | Container utama untuk halaman |
+| `SectionPageHeader` | Header section dengan layout flex responsif |
+| `SectionPageHeaderInfo` | Container untuk informasi judul dan deskripsi |
+| `SectionPageHeaderTitle` | Judul utama halaman |
+| `SectionPageHeaderDescription` | Deskripsi atau subtitle halaman |
+| `SectionPageHeaderActions` | Container untuk tombol aksi |
+| `SectionPageContent` | Container untuk konten utama halaman |
 
+### Contoh Penggunaan
 ```tsx
 <SectionPage>
   <SectionPageHeader>
@@ -607,24 +622,6 @@ Container utama untuk halaman.
   </SectionPageContent>
 </SectionPage>
 ```
-
-#### SectionPageHeader
-Header section dengan layout flex responsif.
-
-#### SectionPageHeaderInfo
-Container untuk informasi judul dan deskripsi.
-
-#### SectionPageHeaderTitle
-Judul utama halaman.
-
-#### SectionPageHeaderDescription
-Deskripsi atau subtitle halaman.
-
-#### SectionPageHeaderActions
-Container untuk tombol aksi.
-
-#### SectionPageContent
-Container untuk konten utama halaman.
 
 ---
 
