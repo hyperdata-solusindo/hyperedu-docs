@@ -1,7 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
-# Custom Components
+# Others
 
 ## Overview
 

@@ -1,53 +1,56 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
-# UI Components
+# Shadcn UI Components
 
 ## Overview
 
-Dokumentasi ini menyediakan panduan lengkap untuk komponen UI dasar yang digunakan dalam aplikasi frontend HyperEdu. Komponen-komponen ini dibangun di atas Radix UI primitives dan menggunakan Tailwind CSS untuk styling, dengan fokus pada aksesibilitas, konsistensi, dan kemudahan penggunaan.
+Dokumentasi ini menyediakan panduan lengkap untuk komponen UI berbasis **Shadcn/ui** yang digunakan dalam aplikasi frontend HyperEdu. Komponen-komponen ini dibangun di atas [Radix UI](https://www.radix-ui.com/) primitives dan menggunakan [Tailwind CSS](https://tailwindcss.com/) untuk styling, dengan fokus pada aksesibilitas, konsistensi, dan kemudahan penggunaan.
 
-Komponen-komponen ini merupakan fondasi dari sistem desain HyperEdu dan digunakan di seluruh aplikasi untuk membangun antarmuka yang konsisten.
+Komponen-komponen ini merupakan fondasi dari sistem desain HyperEdu dan digunakan di seluruh aplikasi untuk membangun antarmuka yang konsisten. Setiap komponen telah dikustomisasi sesuai dengan kebutuhan desain aplikasi.
 
 ---
 
 ## Daftar Komponen
 
-1. [Badge](#badge)
-2. [Breadcrumb](#breadcrumb)
-3. [Button](#button)
-4. [Calendar](#calendar)
-5. [Card](#card)
-6. [Checkbox](#checkbox)
-7. [Collapsible](#collapsible)
-8. [Combobox](#combobox)
-9. [Dialog](#dialog)
-10. [Dropdown Menu](#dropdown-menu)
-11. [Field](#field)
-12. [Input](#input)
-13. [Input Group](#input-group)
-14. [Item](#item)
-15. [Label](#label)
-16. [Navigation Menu](#navigation-menu)
-17. [Pagination](#pagination)
-18. [Popover](#popover)
-19. [Scroll Area](#scroll-area)
-20. [Select](#select)
-21. [Separator](#separator)
-22. [Sheet](#sheet)
-23. [Sidebar](#sidebar)
-24. [Skeleton](#skeleton)
-25. [Sonner (Toaster)](#sonner-toaster)
-26. [Table](#table)
-27. [Textarea](#textarea)
-28. [Tooltip](#tooltip)
+| No | Komponen | Source | Dokumentasi Resmi |
+|----|----------|--------|-------------------|
+| 1 | [Badge](#badge) | `components/ui/badge.tsx` | [Shadcn Badge](https://ui.shadcn.com/docs/components/badge) |
+| 2 | [Breadcrumb](#breadcrumb) | `components/ui/breadcrumb.tsx` | [Shadcn Breadcrumb](https://ui.shadcn.com/docs/components/breadcrumb) |
+| 3 | [Button](#button) | `components/ui/button.tsx` | [Shadcn Button](https://ui.shadcn.com/docs/components/button) |
+| 4 | [Calendar](#calendar) | `components/ui/calendar.tsx` | [Shadcn Calendar](https://ui.shadcn.com/docs/components/calendar) |
+| 5 | [Card](#card) | `components/ui/card.tsx` | [Shadcn Card](https://ui.shadcn.com/docs/components/card) |
+| 6 | [Checkbox](#checkbox) | `components/ui/checkbox.tsx` | [Shadcn Checkbox](https://ui.shadcn.com/docs/components/checkbox) |
+| 7 | [Collapsible](#collapsible) | `components/ui/collapsible.tsx` | [Shadcn Collapsible](https://ui.shadcn.com/docs/components/collapsible) |
+| 8 | [Combobox](#combobox) | `components/ui/combobox.tsx` | [Shadcn Combobox](https://ui.shadcn.com/docs/components/combobox) |
+| 9 | [Dialog](#dialog) | `components/ui/dialog.tsx` | [Shadcn Dialog](https://ui.shadcn.com/docs/components/dialog) |
+| 10 | [Dropdown Menu](#dropdown-menu) | `components/ui/dropdown-menu.tsx` | [Shadcn Dropdown Menu](https://ui.shadcn.com/docs/components/dropdown-menu) |
+| 11 | [Field](#field) | `components/ui/field.tsx` | - (Custom Component) |
+| 12 | [Input](#input) | `components/ui/input.tsx` | [Shadcn Input](https://ui.shadcn.com/docs/components/input) |
+| 13 | [Input Group](#input-group) | `components/ui/input-group.tsx` | - (Custom Component) |
+| 14 | [Item](#item) | `components/ui/item.tsx` | - (Custom Component) |
+| 15 | [Label](#label) | `components/ui/label.tsx` | [Shadcn Label](https://ui.shadcn.com/docs/components/label) |
+| 16 | [Navigation Menu](#navigation-menu) | `components/ui/navigation-menu.tsx` | [Shadcn Navigation Menu](https://ui.shadcn.com/docs/components/navigation-menu) |
+| 17 | [Pagination](#pagination) | `components/ui/pagination.tsx` | [Shadcn Pagination](https://ui.shadcn.com/docs/components/pagination) |
+| 18 | [Popover](#popover) | `components/ui/popover.tsx` | [Shadcn Popover](https://ui.shadcn.com/docs/components/popover) |
+| 19 | [Scroll Area](#scroll-area) | `components/ui/scroll-area.tsx` | [Shadcn Scroll Area](https://ui.shadcn.com/docs/components/scroll-area) |
+| 20 | [Select](#select) | `components/ui/select.tsx` | [Shadcn Select](https://ui.shadcn.com/docs/components/select) |
+| 21 | [Separator](#separator) | `components/ui/separator.tsx` | [Shadcn Separator](https://ui.shadcn.com/docs/components/separator) |
+| 22 | [Sheet](#sheet) | `components/ui/sheet.tsx` | [Shadcn Sheet](https://ui.shadcn.com/docs/components/sheet) |
+| 23 | [Sidebar](#sidebar) | `components/ui/sidebar.tsx` | [Shadcn Sidebar](https://ui.shadcn.com/docs/components/sidebar) |
+| 24 | [Skeleton](#skeleton) | `components/ui/skeleton.tsx` | [Shadcn Skeleton](https://ui.shadcn.com/docs/components/skeleton) |
+| 25 | [Sonner (Toaster)](#sonner-toaster) | `components/ui/sonner.tsx` | [Sonner](https://sonner.emilkowal.ski/) |
+| 26 | [Table](#table) | `components/ui/table.tsx` | [Shadcn Table](https://ui.shadcn.com/docs/components/table) |
+| 27 | [Textarea](#textarea) | `components/ui/textarea.tsx` | [Shadcn Textarea](https://ui.shadcn.com/docs/components/textarea) |
+| 28 | [Tooltip](#tooltip) | `components/ui/tooltip.tsx` | [Shadcn Tooltip](https://ui.shadcn.com/docs/components/tooltip) |
 
 ---
 
 ## Badge
 
-**Lokasi:** `components/ui/badge.tsx`
+**Lokasi:** `components/ui/badge.tsx`  
+**Dokumentasi Resmi:** [Shadcn Badge](https://ui.shadcn.com/docs/components/badge)
 
 ### Deskripsi
 Komponen untuk menampilkan status, label, atau indikator kecil dengan berbagai varian warna.
@@ -59,11 +62,7 @@ Komponen untuk menampilkan status, label, atau indikator kecil dengan berbagai v
 | `variant` | `"default" \| "secondary" \| "destructive" \| "outline" \| "success" \| "warning" \| "info"` | `"default"` | Varian warna badge |
 | `className` | `string` | - | Custom CSS classes |
 
-### Varian
-- **default**: Warna primary (biru)
-- **secondary**: Warna abu-abu
-- **destructive**: Warna merah untuk status error/hapus
-- **outline**: Border dengan teks berwarna
+### Varian Kustom HyperEdu
 - **success**: Hijau pastel untuk status aktif/sukses
 - **warning**: Merah pastel untuk status non-aktif
 - **info**: Abu-abu untuk status netral
@@ -79,7 +78,8 @@ Komponen untuk menampilkan status, label, atau indikator kecil dengan berbagai v
 
 ## Breadcrumb
 
-**Lokasi:** `components/ui/breadcrumb.tsx`
+**Lokasi:** `components/ui/breadcrumb.tsx`  
+**Dokumentasi Resmi:** [Shadcn Breadcrumb](https://ui.shadcn.com/docs/components/breadcrumb)
 
 ### Deskripsi
 Komponen navigasi untuk menunjukkan lokasi pengguna dalam hierarki halaman.
@@ -116,7 +116,8 @@ Komponen navigasi untuk menunjukkan lokasi pengguna dalam hierarki halaman.
 
 ## Button
 
-**Lokasi:** `components/ui/button.tsx`
+**Lokasi:** `components/ui/button.tsx`  
+**Dokumentasi Resmi:** [Shadcn Button](https://ui.shadcn.com/docs/components/button)
 
 ### Deskripsi
 Komponen button dengan berbagai varian, ukuran, dan dukungan asChild untuk rendering sebagai link.
@@ -130,21 +131,8 @@ Komponen button dengan berbagai varian, ukuran, dan dukungan asChild untuk rende
 | `asChild` | `boolean` | `false` | Render sebagai child component (untuk Link) |
 | `disabled` | `boolean` | `false` | Menonaktifkan button |
 
-### Varian
-- **default**: Primary button dengan background solid
-- **destructive**: Warna merah untuk aksi berbahaya
-- **outline**: Border dengan background transparan
-- **secondary**: Warna abu-abu
-- **ghost**: Tanpa background, muncul saat hover
-- **link**: Tampilan seperti link teks
-- **danger**: Warna merah solid
-
-### Ukuran
+### Ukuran Kustom HyperEdu
 - **xs**: Extra small (h-7)
-- **sm**: Small (h-8)
-- **default**: Default (h-9)
-- **lg**: Large (h-10)
-- **icon**: Square button untuk ikon (size-9)
 - **icon-xs**: Extra small icon button (size-6)
 - **icon-sm**: Small icon button (size-8)
 - **icon-lg**: Large icon button (size-10)
@@ -165,7 +153,8 @@ Komponen button dengan berbagai varian, ukuran, dan dukungan asChild untuk rende
 
 ## Calendar
 
-**Lokasi:** `components/ui/calendar.tsx`
+**Lokasi:** `components/ui/calendar.tsx`  
+**Dokumentasi Resmi:** [Shadcn Calendar](https://ui.shadcn.com/docs/components/calendar)
 
 ### Deskripsi
 Komponen kalender untuk memilih tanggal, built on top of react-day-picker.
@@ -198,7 +187,8 @@ Menggunakan props dari `react-day-picker` dengan tambahan:
 
 ## Card
 
-**Lokasi:** `components/ui/card.tsx`
+**Lokasi:** `components/ui/card.tsx`  
+**Dokumentasi Resmi:** [Shadcn Card](https://ui.shadcn.com/docs/components/card)
 
 ### Deskripsi
 Komponen container dengan border, shadow, dan struktur yang konsisten.
@@ -232,7 +222,8 @@ Komponen container dengan border, shadow, dan struktur yang konsisten.
 
 ## Checkbox
 
-**Lokasi:** `components/ui/checkbox.tsx`
+**Lokasi:** `components/ui/checkbox.tsx`  
+**Dokumentasi Resmi:** [Shadcn Checkbox](https://ui.shadcn.com/docs/components/checkbox)
 
 ### Deskripsi
 Komponen checkbox dengan styling konsisten, dibangun di atas Radix UI Checkbox.
@@ -258,7 +249,8 @@ Menggunakan props dari `@radix-ui/react-checkbox`
 
 ## Collapsible
 
-**Lokasi:** `components/ui/collapsible.tsx`
+**Lokasi:** `components/ui/collapsible.tsx`  
+**Dokumentasi Resmi:** [Shadcn Collapsible](https://ui.shadcn.com/docs/components/collapsible)
 
 ### Deskripsi
 Komponen untuk area yang dapat dilipat/dibuka.
@@ -284,7 +276,8 @@ Komponen untuk area yang dapat dilipat/dibuka.
 
 ## Combobox
 
-**Lokasi:** `components/ui/combobox.tsx`
+**Lokasi:** `components/ui/combobox.tsx`  
+**Dokumentasi Resmi:** [Shadcn Combobox](https://ui.shadcn.com/docs/components/combobox)
 
 ### Deskripsi
 Komponen combobox dengan fitur pencarian, multiple selection, dan chips, dibangun di atas Base UI Combobox.
@@ -350,7 +343,8 @@ Komponen combobox dengan fitur pencarian, multiple selection, dan chips, dibangu
 
 ## Dialog
 
-**Lokasi:** `components/ui/dialog.tsx`
+**Lokasi:** `components/ui/dialog.tsx`  
+**Dokumentasi Resmi:** [Shadcn Dialog](https://ui.shadcn.com/docs/components/dialog)
 
 ### Deskripsi
 Komponen modal dialog dengan overlay, dibangun di atas Radix UI Dialog.
@@ -397,7 +391,8 @@ Komponen modal dialog dengan overlay, dibangun di atas Radix UI Dialog.
 
 ## Dropdown Menu
 
-**Lokasi:** `components/ui/dropdown-menu.tsx`
+**Lokasi:** `components/ui/dropdown-menu.tsx`  
+**Dokumentasi Resmi:** [Shadcn Dropdown Menu](https://ui.shadcn.com/docs/components/dropdown-menu)
 
 ### Deskripsi
 Komponen dropdown menu dengan submenu, checkbox items, dan radio items, dibangun di atas Radix UI Dropdown Menu.
@@ -437,7 +432,8 @@ Komponen dropdown menu dengan submenu, checkbox items, dan radio items, dibangun
 
 ## Field
 
-**Lokasi:** `components/ui/field.tsx`
+**Lokasi:** `components/ui/field.tsx`  
+**Dokumentasi Resmi:** - (Custom Component)
 
 ### Deskripsi
 Komponen untuk membungkus form field dengan label, deskripsi, dan error message.
@@ -476,7 +472,8 @@ Komponen untuk membungkus form field dengan label, deskripsi, dan error message.
 
 ## Input
 
-**Lokasi:** `components/ui/input.tsx`
+**Lokasi:** `components/ui/input.tsx`  
+**Dokumentasi Resmi:** [Shadcn Input](https://ui.shadcn.com/docs/components/input)
 
 ### Deskripsi
 Komponen input text dengan berbagai ukuran dan varian.
@@ -503,7 +500,8 @@ Komponen input text dengan berbagai ukuran dan varian.
 
 ## Input Group
 
-**Lokasi:** `components/ui/input-group.tsx`
+**Lokasi:** `components/ui/input-group.tsx`  
+**Dokumentasi Resmi:** - (Custom Component)
 
 ### Deskripsi
 Komponen untuk mengelompokkan input dengan addon (ikon, tombol, teks).
@@ -537,7 +535,8 @@ Komponen untuk mengelompokkan input dengan addon (ikon, tombol, teks).
 
 ## Item
 
-**Lokasi:** `components/ui/item.tsx`
+**Lokasi:** `components/ui/item.tsx`  
+**Dokumentasi Resmi:** - (Custom Component)
 
 ### Deskripsi
 Komponen untuk menampilkan item dalam list dengan media, konten, dan aksi.
@@ -574,7 +573,8 @@ Komponen untuk menampilkan item dalam list dengan media, konten, dan aksi.
 
 ## Label
 
-**Lokasi:** `components/ui/label.tsx`
+**Lokasi:** `components/ui/label.tsx`  
+**Dokumentasi Resmi:** [Shadcn Label](https://ui.shadcn.com/docs/components/label)
 
 ### Deskripsi
 Komponen label untuk form fields, dibangun di atas Radix UI Label.
@@ -589,7 +589,8 @@ Komponen label untuk form fields, dibangun di atas Radix UI Label.
 
 ## Navigation Menu
 
-**Lokasi:** `components/ui/navigation-menu.tsx`
+**Lokasi:** `components/ui/navigation-menu.tsx`  
+**Dokumentasi Resmi:** [Shadcn Navigation Menu](https://ui.shadcn.com/docs/components/navigation-menu)
 
 ### Deskripsi
 Komponen menu navigasi dengan dropdown, dibangun di atas Radix UI Navigation Menu.
@@ -625,7 +626,8 @@ Komponen menu navigasi dengan dropdown, dibangun di atas Radix UI Navigation Men
 
 ## Pagination
 
-**Lokasi:** `components/ui/pagination.tsx`
+**Lokasi:** `components/ui/pagination.tsx`  
+**Dokumentasi Resmi:** [Shadcn Pagination](https://ui.shadcn.com/docs/components/pagination)
 
 ### Deskripsi
 Komponen pagination untuk navigasi halaman.
@@ -663,7 +665,8 @@ Komponen pagination untuk navigasi halaman.
 
 ## Popover
 
-**Lokasi:** `components/ui/popover.tsx`
+**Lokasi:** `components/ui/popover.tsx`  
+**Dokumentasi Resmi:** [Shadcn Popover](https://ui.shadcn.com/docs/components/popover)
 
 ### Deskripsi
 Komponen popover untuk menampilkan konten sementara, dibangun di atas Radix UI Popover.
@@ -699,7 +702,8 @@ Komponen popover untuk menampilkan konten sementara, dibangun di atas Radix UI P
 
 ## Scroll Area
 
-**Lokasi:** `components/ui/scroll-area.tsx`
+**Lokasi:** `components/ui/scroll-area.tsx`  
+**Dokumentasi Resmi:** [Shadcn Scroll Area](https://ui.shadcn.com/docs/components/scroll-area)
 
 ### Deskripsi
 Komponen area scroll dengan styling custom, dibangun di atas Radix UI Scroll Area.
@@ -720,7 +724,8 @@ Komponen area scroll dengan styling custom, dibangun di atas Radix UI Scroll Are
 
 ## Select
 
-**Lokasi:** `components/ui/select.tsx`
+**Lokasi:** `components/ui/select.tsx`  
+**Dokumentasi Resmi:** [Shadcn Select](https://ui.shadcn.com/docs/components/select)
 
 ### Deskripsi
 Komponen select dropdown dengan group dan scroll, dibangun di atas Radix UI Select.
@@ -763,7 +768,8 @@ Komponen select dropdown dengan group dan scroll, dibangun di atas Radix UI Sele
 
 ## Separator
 
-**Lokasi:** `components/ui/separator.tsx`
+**Lokasi:** `components/ui/separator.tsx`  
+**Dokumentasi Resmi:** [Shadcn Separator](https://ui.shadcn.com/docs/components/separator)
 
 ### Deskripsi
 Komponen garis pemisah horizontal atau vertikal, dibangun di atas Radix UI Separator.
@@ -784,7 +790,8 @@ Komponen garis pemisah horizontal atau vertikal, dibangun di atas Radix UI Separ
 
 ## Sheet
 
-**Lokasi:** `components/ui/sheet.tsx`
+**Lokasi:** `components/ui/sheet.tsx`  
+**Dokumentasi Resmi:** [Shadcn Sheet](https://ui.shadcn.com/docs/components/sheet)
 
 ### Deskripsi
 Komponen drawer/sheet yang muncul dari sisi layar, dibangun di atas Radix UI Dialog.
@@ -832,7 +839,8 @@ Komponen drawer/sheet yang muncul dari sisi layar, dibangun di atas Radix UI Dia
 
 ## Sidebar
 
-**Lokasi:** `components/ui/sidebar.tsx`
+**Lokasi:** `components/ui/sidebar.tsx`  
+**Dokumentasi Resmi:** [Shadcn Sidebar](https://ui.shadcn.com/docs/components/sidebar)
 
 ### Deskripsi
 Komponen sidebar lengkap dengan support collapsible, responsive, dan mobile view.
@@ -884,7 +892,8 @@ Komponen sidebar lengkap dengan support collapsible, responsive, dan mobile view
 
 ## Skeleton
 
-**Lokasi:** `components/ui/skeleton.tsx`
+**Lokasi:** `components/ui/skeleton.tsx`  
+**Dokumentasi Resmi:** [Shadcn Skeleton](https://ui.shadcn.com/docs/components/skeleton)
 
 ### Deskripsi
 Komponen placeholder untuk loading state dengan animasi pulse.
@@ -899,7 +908,8 @@ Komponen placeholder untuk loading state dengan animasi pulse.
 
 ## Sonner (Toaster)
 
-**Lokasi:** `components/ui/sonner.tsx`
+**Lokasi:** `components/ui/sonner.tsx`  
+**Dokumentasi Resmi:** [Sonner](https://sonner.emilkowal.ski/)
 
 ### Deskripsi
 Komponen toast notification menggunakan library sonner dengan ikon custom.
@@ -921,7 +931,8 @@ toast.loading("Loading...");
 
 ## Table
 
-**Lokasi:** `components/ui/table.tsx`
+**Lokasi:** `components/ui/table.tsx`  
+**Dokumentasi Resmi:** [Shadcn Table](https://ui.shadcn.com/docs/components/table)
 
 ### Deskripsi
 Komponen table dengan styling konsisten untuk menampilkan data tabular.
@@ -960,7 +971,8 @@ Komponen table dengan styling konsisten untuk menampilkan data tabular.
 
 ## Textarea
 
-**Lokasi:** `components/ui/textarea.tsx`
+**Lokasi:** `components/ui/textarea.tsx`  
+**Dokumentasi Resmi:** [Shadcn Textarea](https://ui.shadcn.com/docs/components/textarea)
 
 ### Deskripsi
 Komponen textarea dengan styling konsisten.
@@ -986,7 +998,8 @@ Komponen textarea dengan styling konsisten.
 
 ## Tooltip
 
-**Lokasi:** `components/ui/tooltip.tsx`
+**Lokasi:** `components/ui/tooltip.tsx`  
+**Dokumentasi Resmi:** [Shadcn Tooltip](https://ui.shadcn.com/docs/components/tooltip)
 
 ### Deskripsi
 Komponen tooltip dengan styling custom, dibangun di atas Radix UI Tooltip.
@@ -1017,35 +1030,57 @@ Komponen tooltip dengan styling custom, dibangun di atas Radix UI Tooltip.
 - Selalu gunakan `asChild` ketika merender Link dengan Button
 - Berikan `aria-label` pada ikon button
 - Gunakan semantic HTML yang sesuai
+- Pastikan kontras warna memenuhi standar WCAG
 
 ### 2. Performance
 - Gunakan lazy loading untuk komponen yang tidak terlihat
 - Manfaatkan React.memo untuk komponen yang sering re-render
 - Hindari inline styles yang tidak perlu
+- Gunakan `useCallback` dan `useMemo` untuk fungsi dan nilai yang mahal
 
 ### 3. Konsistensi
 - Gunakan varian dan ukuran yang sudah ditentukan
 - Ikuti sistem desain yang telah ditetapkan
 - Gunakan utility classes Tailwind dengan konsisten
+- Manfaatkan `cn()` untuk conditional classes
 
 ### 4. Customization
 - Gunakan prop `className` untuk override styling
 - Kombinasikan dengan `cn()` untuk conditional classes
 - Jangan mengubah struktur dasar komponen
+- Gunakan varian yang sudah ada daripada membuat styling baru
 
 ---
 
-## Menambahkan Komponen Baru
+## Menambahkan Komponen Shadcn Baru
 
-Untuk menambahkan komponen UI baru:
+Untuk menambahkan komponen Shadcn baru ke proyek:
 
-1. Buat file di `src/components/ui/`
-2. Gunakan Radix UI primitives jika memungkinkan
-3. Implementasikan styling dengan Tailwind CSS
-4. Export komponen dari file
-5. Update dokumentasi ini
+### 1. Install Komponen
 
-### Template Komponen
+```bash
+npx shadcn@latest add [component-name]
+```
+
+### 2. Kustomisasi Sesuai Kebutuhan
+
+Setelah terinstall, komponen dapat dikustomisasi di `components/ui/[component-name].tsx`:
+
+- Sesuaikan styling dengan sistem desain HyperEdu
+- Tambahkan varian kustom jika diperlukan
+- Pastikan komponen tetap accessible
+
+### 3. Update Dokumentasi
+
+Setelah menambahkan komponen baru, update dokumentasi ini dengan:
+
+- Nama komponen dan lokasi file
+- Deskripsi penggunaan
+- Props yang tersedia
+- Contoh penggunaan
+- Link ke dokumentasi resmi Shadcn
+
+### Template Komponen Baru
 ```tsx
 import * as React from "react";
 import * as Primitive from "@radix-ui/react-primitive";
@@ -1077,4 +1112,14 @@ function NewComponent({
 }
 
 export { NewComponent };
+```
+
+---
+
+## Referensi
+
+- [Shadcn/ui Documentation](https://ui.shadcn.com/docs)
+- [Radix UI Documentation](https://www.radix-ui.com/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [React Aria Components](https://react-spectrum.adobe.com/react-aria/)
 ```
