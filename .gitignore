@@ -6,6 +6,7 @@
 
 # Generated files
 .docusaurus
+.obsidian
 .cache-loader
 
 # Misc
@@ -20,3 +21,4 @@ yarn-debug.log*
 yarn-error.log*
 
 package-lock.json
+.
