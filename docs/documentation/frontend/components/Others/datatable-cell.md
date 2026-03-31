@@ -9,7 +9,7 @@ sidebar_label: "DataTableCell"
 
 ## Deskripsi
 
-Komponen wrapper untuk cell tabel dengan styling konsisten. DataTableCell menyediakan styling default untuk semua cell dalam tabel, memastikan konsistensi visual di seluruh aplikasi.
+Komponen wrapper untuk cell tabel dengan styling konsisten. DataTableCell menyediakan styling default untuk semua cell dalam tabel memastikan konsistensi visual di seluruh aplikasi.
 
 ## Fitur
 

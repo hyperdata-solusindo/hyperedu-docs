@@ -10,7 +10,7 @@ sidebar_label: "Checkbox"
 
 ## Deskripsi
 
-Komponen checkbox dengan styling konsisten, dibangun di atas Radix UI Checkbox. Checkbox digunakan untuk memilih satu atau beberapa opsi dari daftar, atau untuk mengkonfirmasi persetujuan seperti terms and conditions.
+Komponen checkbox dengan styling konsisten, dibangun di atas Radix UI Checkbox. Checkbox digunakan untuk memilih satu atau beberapa opsi dari daftar atau untuk mengkonfirmasi persetujuan seperti terms and conditions.
 
 ## Props
 
