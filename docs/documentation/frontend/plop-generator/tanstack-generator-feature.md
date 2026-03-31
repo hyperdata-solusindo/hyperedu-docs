@@ -3,7 +3,7 @@ title: "TanStack + Feature"
 sidebar_label: "TanStack + Feature"
 ---
 
-# Generator: TanStack + Feature
+# TanStack + Feature
 
 ## Gambaran Umum
 

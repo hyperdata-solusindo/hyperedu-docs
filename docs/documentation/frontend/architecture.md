@@ -136,7 +136,7 @@ Panggilan API diabstraksikan melalui:
 ## Generasi Kode dengan Plop
 
 Proyek menggunakan Plop.js untuk scaffolding kode yang konsisten. Generator yang tersedia:
-- `TanStack + feature`: Generate modul fitur lengkap [klik disini](/docs/documentation/frontend/generator-feature)
+- `TanStack + feature`: Generate modul fitur lengkap [klik disini](/docs/documentation/frontend/plop-generator/generator-feature)
 - `TanStack + feature:datatable`: Generate komponen tabel data
 - `TanStack + feature:form-hook`: Generate hooks form
 - `TanStack + feature:crud-hook`: Generate operasi CRUD dengan TanStack Query
