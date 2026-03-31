@@ -1,0 +1,8 @@
+{
+  "label": "Shadcn",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Dokumen ini menguraikan arsitektur aplikasi frontend HyperEdu, dibangun dengan React dan TypeScript."
+  }
+}
