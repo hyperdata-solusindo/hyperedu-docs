@@ -88,10 +88,11 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          type: 'doc',
+          docId: 'intro', 
+          docsPluginId: 'tutorial',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Home',
         },
         {
           type: 'docSidebar',
@@ -160,6 +161,18 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'tutorial', // ID unik untuk instance kedua
+        path: 'tutorial', // Jalur ke folder di luar docs
+        routeBasePath: 'tutorial', // URL: /tutorials/beginner/setup
+        sidebarPath: require.resolve('./sidebarsTutorials.js'),
+        // Opsional: editUrl, showLastUpdateTime, dll
+      },
+    ],
+  ]
 };
 
 export default config;
