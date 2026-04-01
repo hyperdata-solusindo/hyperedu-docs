@@ -18,9 +18,9 @@ php artisan make:swagger NamaModel
 ```
 
 Masukkan nama model dalam format dibawah ini:
-- **pascalcase**: `AcademicYear`, `SubjectCurriculum`
-- **pascalcase tanpa spasi**: `Province`, `Religion`
-- **format subfolder**: `Core/District`, `Masters/Division`
+- **PascalCase**: `AcademicYear`, `SubjectCurriculum`
+- **PascalCase tanpa spasi**: `Province`, `Religion`
+- **Format subfolder**: `Core/District`, `Masters/Division`
 
 **Contoh:**
 
